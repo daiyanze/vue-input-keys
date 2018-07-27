@@ -1,0 +1,35 @@
+{
+  "name": "vue-keymap",
+  "version": "0.0.1",
+  "description": "A Vuejs 2.x plugin for binding keys to components",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daiyanze/vue-keymap.git"
+  },
+  "keywords": [
+    "vue",
+    "vue-keymap",
+    "keybindings",
+    "shortcut"
+  ],
+  "author": "daiyanze <ginoalex8964@yahoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daiyanze/vue-keymap/issues"
+  },
+  "homepage": "https://github.com/daiyanze/vue-keymap#readme",
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "ts-loader": "^4.4.2",
+    "tslint": "^5.11.0",
+    "typescript": "^2.9.2",
+    "vue": "^2.5.16",
+    "vue-loader": "^15.2.6",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.16.2"
+  }
+}
