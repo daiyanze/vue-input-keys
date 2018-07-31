@@ -1,6 +1,6 @@
 {
-  "complierOptions": {
-    "outDir": "./dist",
+  "compilerOptions": {
+		"outDir":"dist",
     "sourceMap": true,
     "strict": true,
     "module": "es2015",
