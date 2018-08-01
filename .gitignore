@@ -4,4 +4,6 @@ yarn.lock
 *.log
 .cache/
 dist/
+docs/main*
+docs/index.html
 

@@ -6,9 +6,9 @@
   "typings": "src/index.ts",
   "scripts": {
     "dev": "parcel docs/src/index.html --out-dir ./docs",
-    "build": "npm run build:js && npm run build:docs",
+    "build": "yarn run build:js && yarn run build:docs",
     "build:js": "tsc -p ./tsconfig.json",
-    "build:docs": "parcel build docs/src/index.html --out-dir ./docs",
+    "build:docs": "rimraf ./docs/main* ./docs/index.html && parcel build docs/src/index.html --out-dir ./docs",
     "clean": "rimraf ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -38,6 +38,7 @@
     "rimraf": "^2.6.2",
     "tslint": "^5.11.0",
     "typescript": "^2.9.2",
-    "vue-template-compiler": "^2.5.16"
+    "vue-template-compiler": "^2.5.16",
+    "yarn": "^1.9.2"
   }
 }
