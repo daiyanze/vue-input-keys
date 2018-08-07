@@ -2,17 +2,19 @@ import * as _Vue from "vue"
 
 export type PluginFunction<T> = (Vue: typeof _Vue, options?: T) => void;
 
-interface VueKeymap<T> {
+interface _VueKeymap<T> {
   install: PluginFunction<T>
   [key: string]: any
 }
 
-export default class Plugin implements VueKeymap<any> {
-  constructor () {
-    console.log('it works')
-  }
+export default class VueKeymap implements _VueKeymap<any> {
 
-  public install (Vue: typeof _Vue, options?: Object): void {
+  static install (Vue: typeof _Vue, options?: Object): void {
     console.log('installing vue plugin')
   }
 }
+
+if (typeof window !== 'undefined' && !!window['Vue']) {
+	  window['Vue'].use(VueKeymap);
+}
+
