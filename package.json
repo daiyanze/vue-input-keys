@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A Vuejs 2.x plugin for binding keys to components",
   "main": "dist/index.js",
-  "typings": "src/index.ts",
+  "types": "types/index.d.ts",
   "scripts": {
     "dev": "parcel docs/src/index.html --out-dir ./docs",
     "build": "yarn run build:js && yarn run build:docs",

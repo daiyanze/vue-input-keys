@@ -1,20 +1,15 @@
-import * as _Vue from "vue"
+import { VueConstructor as Vue } from "vue/types/vue"
+import { PluginFunction, PluginObject } from "vue/types/plugin"
+import VKeymap from './directives'
 
-export type PluginFunction<T> = (Vue: typeof _Vue, options?: T) => void;
-
-interface _VueKeymap<T> {
-  install: PluginFunction<T>
-  [key: string]: any
-}
-
-export default class VueKeymap implements _VueKeymap<any> {
-
-  static install (Vue: typeof _Vue, options?: Object): void {
+export default class VueKeymap implements PluginObject<Object> {
+  public install (Vue: Vue, options?: Object): void {
     console.log('installing vue plugin')
+		Vue.prototype.$keymap = {
+			test: '',
+			out: () => console.log('output something here...')
+		}
+		Vue.directive('keymap', VKeymap)
   }
-}
-
-if (typeof window !== 'undefined' && !!window['Vue']) {
-	  window['Vue'].use(VueKeymap);
 }
 

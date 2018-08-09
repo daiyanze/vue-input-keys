@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    {{ message }}
+		<span v-keymap>
+    	{{ message }}
+		</span>
   </div>
 </template>
 <script lang="ts">
