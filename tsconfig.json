@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-		"outDir":"dist",
+		"outDir": "dist",
     "sourceMap": true,
     "strict": true,
     "module": "es2015",
@@ -9,8 +9,8 @@
     "experimentalDecorators": true
   },
   "include": [
-    "./src/**/*.ts",
-		"./types/**/*.d.ts"
+    "./src/**/*",
+    "./types/**/*"
   ],
 	"exclude": [
 		"node_modules",

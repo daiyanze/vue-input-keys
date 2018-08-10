@@ -1,0 +1,24 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+				"tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+      "indent": [true, "spaces", 2],
+			"semicolon": [true, "never"],
+      "arrow-parens": [true, "ban-single-arg-parens"],
+			"quotemark": false,
+			"space-before-function-paren": [true, "always"],
+      "space-within-parens": true,
+      "no-consecutive-blank-lines": false,
+      "no-console": { "severity": "warning" },
+      "no-unused-variable": { "severity": "warning" },
+      "no-unused-expression": [true, "allow-new"],
+      "ordered-imports": false,
+      "interface-name": false,
+      "trailing-comma": false,
+      "variable-name": true
+		},
+    "rulesDirectory": []
+}

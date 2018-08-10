@@ -1,6 +1,8 @@
 
 export default {
-	bind (el: HTMLElement, binding: Object, vnode: Object) {
-		console.log('vue-keymap is binded!')
-	}
+  bind (el: HTMLElement, binding: object, vnode: object) {
+    console.log(binding)
+    const { arg = 'up' } = binding
+  }
 }
+

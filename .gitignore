@@ -1,6 +1,7 @@
 node_modules/
 .DS_STORE
 yarn.lock
+package-lock.json
 *.log
 .cache/
 dist/

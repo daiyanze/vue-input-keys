@@ -28,16 +28,14 @@
     "url": "https://github.com/daiyanze/vue-keymap/issues"
   },
   "homepage": "https://github.com/daiyanze/vue-keymap#readme",
-  "dependencies": {
-    "vue": "^2.5.16",
-    "vue-hot-reload-api": "^2.3.0"
-  },
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.1.0",
     "parcel-bundler": "^1.9.7",
     "rimraf": "^2.6.2",
     "tslint": "^5.11.0",
     "typescript": "^2.9.2",
+    "vue": "^2.5.16",
+    "vue-hot-reload-api": "^2.3.0",
     "vue-template-compiler": "^2.5.16",
     "yarn": "^1.9.2"
   }
