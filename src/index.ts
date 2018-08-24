@@ -3,15 +3,24 @@ import { VueConstructor } from "vue/types/vue"
 import directives from "./directives"
 
 interface Option {
-  message: 'vue kemap'
+  maps: {},
   [key: string]: any
+}
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $keymap: any
+  }
 }
 
 const vueKeymap = {
   defaultOptions: {
     test: ''
   },
-  install (vue: VueConstructor, options?: Option): void {
+  install (
+    vue: VueConstructor,
+    options?: Option
+  ): void {
     vue.prototype.$keymap = {
       test: ''
     }
@@ -19,13 +28,8 @@ const vueKeymap = {
   }
 }
 
+export default vueKeymap
+
 if (typeof window !== 'undefined' && window.Vue) {
   window.Vue.use(vueKeymap)
 }
-
-declare module 'vue/types/vue' {
-  interface Vue {
-      $keymap: any
-  }
-}
-
