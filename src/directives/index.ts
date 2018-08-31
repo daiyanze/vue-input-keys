@@ -1,7 +1,7 @@
 import { VNode, VNodeDirective } from 'vue/types/vnode'
 import { DirectiveFunction, DirectiveOptions } from 'vue/types/options'
 import Vue from 'vue'
-import { alpha } from '../maps'
+import mappings from '../mappings'
 
 export default {
   bind (
@@ -12,18 +12,33 @@ export default {
   ): void {
     console.log(binding)
     const {
-      arg = 'up',
+      arg = 'down',
       modifiers = {},
-      value
+      value: {
+        maps,
+        exec
+      }
     } = binding
 
     // const modifierKeys = Object.keys(modifiers)
     // if (modifierKeys.length) {
       
     // }
-    el.addEventListener('keyup', e => {
+    let when = 'keydown'
+    if (arg == 'arg') {
+      when = 'keyup'
+    }
+    el.addEventListener(when, e => {
 
-      console.log(alpha.validate(e.keyCode))
-    })
+      for (const m in maps) {
+        if (!mappings[m](e .keyCode)) {
+          e.preventDefault()
+          e.stopPropagation()
+          return
+        }
+        exec(e)
+        
+      }
+    }, false)
   }
 }

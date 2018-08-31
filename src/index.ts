@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import { VueConstructor } from "vue/types/vue"
 import directives from "./directives"
+import * as mappings from './mappings'
 
 interface Option {
-  maps: {},
+  mappings: {},
   [key: string]: any
 }
 
@@ -15,14 +16,23 @@ declare module 'vue/types/vue' {
 
 const vueKeymap = {
   defaultOptions: {
-    test: ''
+    mappings
   },
   install (
     vue: VueConstructor,
     options?: Option
   ): void {
+    let mappings = this.defaultOptions.mappings
+    if (options) {
+      mappings = {
+        ...this.defaultOptions.mappings,
+        ...(options.mappings || {})
+      }
+    }
     vue.prototype.$keymap = {
-      test: ''
+      mappings,
+      bind: () => {},
+      unbind: () => {}
     }
     vue.directive('keymap', directives)
   }
