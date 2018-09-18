@@ -1,5 +1,5 @@
 {
-  "name": "vue-keymap",
+  "name": "vue-input-keys",
   "version": "0.0.1",
   "description": "A Vuejs 2.x plugin for binding keys to components",
   "main": "dist/index.js",
@@ -10,26 +10,27 @@
     "build:js": "tsc -p ./tsconfig.json",
     "build:docs": "rimraf ./docs/main* ./docs/index.html && parcel build docs/src/index.html --out-dir ./docs",
     "clean": "rimraf ./dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daiyanze/vue-keymap.git"
+    "url": "git+https://github.com/daiyanze/vue-input-keys.git"
   },
   "keywords": [
     "vue",
-    "vue-keymap",
+    "vue-input-keys",
     "keybindings",
     "shortcut"
   ],
   "author": "daiyanze <ginoalex8964@yahoo.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/daiyanze/vue-keymap/issues"
+    "url": "https://github.com/daiyanze/vue-input-keys/issues"
   },
-  "homepage": "https://github.com/daiyanze/vue-keymap#readme",
+  "homepage": "https://github.com/daiyanze/vue-input-keys#readme",
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.1.0",
+    "ava": "1.0.0-beta.8",
     "parcel-bundler": "^1.9.7",
     "rimraf": "^2.6.2",
     "tslint": "^5.11.0",

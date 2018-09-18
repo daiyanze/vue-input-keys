@@ -1,18 +1,24 @@
 <template>
   <div id="app">
     <section>
-      <h5>{{ message1 }}</h5>
-      <input type="text" name="input1" v-model="message1"
-        v-keymap:down.alpha.num="{ except: ['0', '1'], exec: event1  }" />
+      <h5>only alphanumeric keys (v-input-keys="alpha|num|arrows|ctlrs")</h5>
+      <input type="text" name="input1" v-model="value1"
+        v-input-keys="'alpha|num|arrows|ctlrs'" />
     </section>
     <section>
-      <h5>{{ message2 }}</h5>
-      <input type="text" name="input2" v-model="message2"
-        v-keymap="{ maps, exec: event2 }"/>
+      <h5>select to listen to alphabetic or numeric or symbols keys</h5>
+      <input type="text" name="input2" v-model="value2"
+        v-input-keys="mappingsSelect"/>
       <select name="mappingsSelect" v-model="mappingsSelect" id="select">
         <option value="alpha" selected>alphabetic</option>
         <option value="num">numeric</option>
+        <option value="symbols">symbols</option>
       </select>
+    </section>
+    <section>
+      <h5>custom input restriction</h5>
+      <input type="text" name="input3" v-model="value3"
+        v-input-keys="limitedKeys"/>
     </section>
   </div>
 </template>
@@ -21,25 +27,17 @@ export default {
   name: 'App',
   data () {
     return {
-      message1: 'This input tag will only listen to alphanumeric keys',
-      message2: 'This input tag can listen to either alpha or numeric keys',
+      value1: '',
+      value2: '',
+      value3: '',
       mappingsSelect: 'alpha',
-      keyMaps: ['alpha', 'num']
-    }
-  },
-  computed: {
-    maps () {
-      return this.keyMaps[this.mappingsSelect]
+      keyMaps: ['alpha', 'num', 'symbols']
     }
   },
   methods: {
-    event1 (e) {
-      alert(e.keyCode)
-    },
-    event2 (e){
-      alert(e.keyCode)
+    limitedKeys (keyCode: number) {
+      return keyCode > 100
     }
   }
 }
 </script>
-

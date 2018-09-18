@@ -1,45 +1,37 @@
 import Vue from 'vue'
 import { VueConstructor } from "vue/types/vue"
 import directives from "./directives"
-import * as mappings from './mappings'
+import * as defaultMaps from './maps'
 
 interface Option {
-  mappings: {},
-  [key: string]: any
+  // keyboard listeners' judgement function
+  maps: object
 }
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $keymap: any
+    $inputKeys: any
   }
 }
 
-const vueKeymap = {
-  defaultOptions: {
-    mappings
-  },
+const vueInputKeys = {
   install (
     vue: VueConstructor,
     options?: Option
   ): void {
-    let mappings = this.defaultOptions.mappings
-    if (options) {
-      mappings = {
-        ...this.defaultOptions.mappings,
-        ...(options.mappings || {})
-      }
+    const inputKeys = {
+      maps: defaultMaps,
+      listeners: {}
     }
-    vue.prototype.$keymap = {
-      mappings,
-      bind: () => {},
-      unbind: () => {}
-    }
-    vue.directive('keymap', directives)
+    if (options && options.maps)
+      inputKeys.maps = Object.assign(inputKeys.maps, options.maps)
+    vue.prototype.$inputKeys = inputKeys
+    vue.directive('input-keys', directives)
   }
 }
 
-export default vueKeymap
+export default vueInputKeys
 
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(vueKeymap)
+  window.Vue.use(vueInputKeys)
 }
